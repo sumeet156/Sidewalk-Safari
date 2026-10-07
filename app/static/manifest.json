@@ -1,0 +1,8 @@
+{
+  "name": "Sidewalk Safari",
+  "short_name": "Safari",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3f5ed",
+  "theme_color": "#1f5a44"
+}

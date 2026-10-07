@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1f5a44">
+    <title>Sidewalk Safari</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="brand">
+        <p class="eyebrow">A little less screen. A little more outside.</p>
+        <h1>Sidewalk Safari</h1>
+        <p>Make a small adventure. Then put your phone away.</p>
+      </header>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <section id="setup" class="panel" aria-labelledby="setup-heading">
+        <h2 id="setup-heading">Plan your safari</h2>
+        <form id="safari-form">
+          <label>
+            Setting
+            <select name="setting" required>
+              <option value="park">Park</option>
+              <option value="neighborhood">Neighborhood</option>
+              <option value="garden">Garden</option>
+            </select>
+          </label>
+          <label>
+            Time outside
+            <select name="time_limit_min" required>
+              <option value="10">10 minutes</option>
+              <option value="20" selected>20 minutes</option>
+              <option value="30">30 minutes</option>
+            </select>
+          </label>
+          <label>
+            Age group
+            <select name="age_band" required>
+              <option value="10-13" selected>10-13</option>
+              <option value="14-17">14-17</option>
+              <option value="18-20">18-20</option>
+            </select>
+          </label>
+          <label>
+            Season
+            <select name="season" required>
+              <option value="" disabled selected>Select season</option>
+              <option value="spring">Spring</option>
+              <option value="summer">Summer</option>
+              <option value="autumn">Autumn</option>
+              <option value="winter">Winter</option>
+            </select>
+          </label>
+          <label>
+            Weather (optional)
+            <input name="weather_note" maxlength="100" placeholder="e.g. cloudy, cool">
+          </label>
+          <p class="privacy-hint">Weather is entered by you. No location is requested or sent to a weather service.</p>
+          <button id="create-button" class="primary" type="submit">Create safari</button>
+        </form>
+      </section>
+
+      <section id="play" class="panel hidden" aria-live="polite" aria-labelledby="mission-title">
+        <p id="pack-context" class="eyebrow"></p>
+        <p id="progress" class="progress"></p>
+        <h2 id="mission-title"></h2>
+        <p id="mission-text" class="mission-text"></p>
+        <p id="mission-safety" class="safety"></p>
+        <button id="next-button" class="primary" type="button">Next mission</button>
+        <button id="save-button" class="secondary" type="button">Save pack for offline</button>
+      </section>
+
+      <section id="go" class="go-screen hidden" aria-live="polite">
+        <p class="eyebrow">Safari pack ready</p>
+        <h2>Go!</h2>
+        <p id="closing"></p>
+        <button id="done-button" class="secondary" type="button">Back to plans</button>
+      </section>
+
+      <section class="saved-section" aria-labelledby="saved-heading">
+        <h2 id="saved-heading">Saved packs</h2>
+        <ul id="saved-packs" class="saved-list"></ul>
+      </section>
+      <footer>Stay in safe, public areas. Players under 18 should play with adult supervision.</footer>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
