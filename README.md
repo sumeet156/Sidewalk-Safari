@@ -28,14 +28,21 @@ Weather and season are adult-entered in this version; a season must be selected 
 
 ## Run locally
 
-1. Install Ollama, then pull and start the model:
+1. Install Ollama. In a PowerShell terminal, pull the model:
 
    ```powershell
    ollama pull gemma3:4b
+   ```
+
+   Ollama Desktop normally starts the local server for you. If the server is not
+   already running, start it in a separate PowerShell terminal and leave that
+   terminal open:
+
+   ```powershell
    ollama serve
    ```
 
-   Keep `ollama serve` running in its own terminal.
+   Confirm that the model is installed with `ollama list`.
 
 2. In the project directory, create and activate a virtual environment, install dependencies, then start the API:
 
@@ -46,6 +53,9 @@ Weather and season are adult-entered in this version; a season must be selected 
    Copy-Item .env.example .env
    uvicorn app.main:app --reload --env-file .env
    ```
+
+   If `.env` already exists, skip `Copy-Item .env.example .env` so you do not
+   overwrite your local settings.
 
 3. Open <http://127.0.0.1:8000>. The health check is at <http://127.0.0.1:8000/health>.
 
@@ -79,7 +89,7 @@ Open the app once while the API is running, then save a generated pack using **S
 ## Stage 1 checklist
 
 - [x] Start Ollama with Gemma and run the app locally.
-- [ ] Generate packs across all three settings, time limits, and age groups.
+- [x] Generate packs across all three settings, time limits, and age groups.
 - [x] Confirm unsafe model outputs are rejected and the backup is visibly disclosed.
 - [x] Save a pack, disconnect from the network, and play the saved missions.
 - [ ] Complete a supervised outdoor session and record observations before making claims in a project write-up.
